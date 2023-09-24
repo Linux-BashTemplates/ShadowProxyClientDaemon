@@ -16,6 +16,14 @@
    "timeout":       The timeout duration in seconds. If no data is transmitted for the specified duration, the connection is considered idle and may be closed.</p>
    "method":        The encryption method or cipher used for securing the communication between the client and server. Common methods include "aes-256-gcm," "chacha20-ietf," etc. It determines how data is encrypted and decrypted.</p>
 </code>
+ <p>Create a daemon user and user group:</p>
+  <pre>
+     <code>
+      sudo useradd -r -s /bin/false shadowsocks
+      sudo groupadd shadowsocks
+      sudo chown -R shadowsocks:shadowsocks /etc/shadowsocks-libev/ 
+  </code>
+  </pre> 
 </pre>
 <p>Edit shadosocks config:</p>
  <pre> 
@@ -31,14 +39,21 @@
 <pre>
    <code>sudo nano /etc/systemd/system/shadosocks.service</code>
 </pre>
-<p>Create a daemon user and user group:</p>
-  <pre>
-     <code>
-      sudo useradd -r -s /bin/false shadowsocks
-      sudo groupadd shadowsocks
-      sudo chown -R shadowsocks:shadowsocks /etc/shadowsocks-libev/ 
-  </code>
-  </pre> 
+<p>Add new rows:</p>
+<pre>
+ <code>
+[Unit]
+   Description=Shadowsocks Proxy Client
+[Service] 
+   User=root
+Group=root
+   Type=simple
+   ExecStart=/usr/bin/ss-local -c /etc/shadowsocks-libev/shadowsocks.json -a shadowsocks -v start
+   ExecStop=/usr/bin/ss-local -c /etc/shadowsocks-libev/shadowsocks.json -a shadowsocks -v stop
+[Install]
+   WantedBy=multi-user.target
+</code>
+</pre>
 <p>Update daemon services, run and add to autoload:</p> 
 <pre>
    <code>
