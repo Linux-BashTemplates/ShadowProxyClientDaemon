@@ -18,11 +18,11 @@
 }
  </pre>
  <p>Create a daemon user and user group:</p>
-     <code>
+     <pre>
       sudo useradd -r -s /bin/false shadowsocks
       sudo groupadd shadowsocks
       sudo chown -R shadowsocks:shadowsocks /etc/shadowsocks-libev/ 
-  </code>
+  </pre>
    <hr>
 <p>Edit shadosocks config:</p>
     <code>
@@ -33,7 +33,7 @@
 <p>If the configuration is successful, try creating a proxy client daemon:</p>
    <code>sudo nano /etc/systemd/system/shadosocks.service</code><hr>
 <p>Add new rows:</p>
- <code>
+ <pre>
 [Unit]
    Description=Shadowsocks Proxy Client
 [Service] 
@@ -44,7 +44,7 @@
    ExecStop=/usr/bin/ss-local -c /etc/shadowsocks-libev/shadowsocks.json -a shadowsocks -v stop
 [Install]
    WantedBy=multi-user.target
-</code>
+</pre>
 <hr>
 <p>Update daemon services, run and add to autoload:</p> 
    <code>
