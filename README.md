@@ -7,8 +7,7 @@
    <pre><code>sudo nano /etc/shadowsocks-libev/shadowsocks.json</code> </pre>
 <p>Open the JSON configuration file and add the following properties with their respective values:</p>
  <pre>
-  <code>
-  {
+ ```json
    "server":        The IP address or domain name of the Shadowsocks remote server to which the client should connect. This is the address of the remote Shadowsocks server that the client will use as a proxy.</p>
    "mode":          The operational mode of the Shadowsocks client/server. It typically specifies whether the instance should run as a client or a server. Common modes include "local" (client) and "server" (server).</p>
    "server_port":   The port number on which the Shadowsocks server is listening for incoming connections. The client will connect to this port on the server.</p>
@@ -19,8 +18,7 @@
    "timeout":       The timeout duration in seconds. If no data is transmitted for the specified duration, the connection is considered idle and may be closed.</p>
    "method":        The encryption method or cipher used for securing the communication between the client and server. Common methods include "aes-256-gcm," "chacha20-ietf," etc. It determines how data is encrypted and decrypted.</p>
 }
-</code>
- </pre>
+```
  <p>Create a daemon user and user group:</p>
    <pre><code>sudo useradd -r -s /bin/false shadowsocks</code> </pre> 
    <pre><code>sudo groupadd shadowsocks </code> </pre>
