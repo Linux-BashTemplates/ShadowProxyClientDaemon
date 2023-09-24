@@ -1,16 +1,16 @@
  <h1>Install ShadowProxy Client</h1>
   <p>Update your package list:</p>
-            <pre><code>sudo apt update</code></pre>
-            <p>Install Shadowsocks-Libev:</p>
-            <pre><code>sudo apt install shadowsocks-libev -y</code></pre>
-            <p>Create a daemon user and user group:</p>
-            <pre><code>
-               sudo useradd -r -s /bin/false shadowsocks
-               sudo groupadd shadowsocks
-               sudo chown -R shadowsocks:shadowsocks /etc/shadowsocks-libev/ 
-            </code></pre>
-  
-            <p>Open the JSON configuration file and add the following properties with their respective values:</p>
+  <pre><code>sudo apt update</code></pre>
+  <p>Install Shadowsocks-Libev:</p>
+  <pre><code>sudo apt install shadowsocks-libev -y</code></pre>
+  <p>Create a daemon user and user group:</p>
+  <pre><code>
+    sudo useradd -r -s /bin/false shadowsocks
+    sudo groupadd shadowsocks
+    sudo chown -R shadowsocks:shadowsocks /etc/shadowsocks-libev/ 
+  </code>
+  </pre>
+    <p>Open the JSON configuration file and add the following properties with their respective values:</p>
             <ul>
                 <li>
                     <p><strong>"server":</strong> The IP address or domain name of the Shadowsocks remote server to which the client should connect. This is the address of the remote Shadowsocks server that the client will use as a proxy.</p>
@@ -38,10 +38,12 @@
                 </li>
                 <li>
                     <p><strong>"method":</strong> The encryption method or cipher used for securing the communication between the client and server. Common methods include "aes-256-gcm," "chacha20-ietf," etc. It determines how data is encrypted and decrypted.</p>
-                </li>
-            </ul>
-            <code>sudo nano /etc/shadowsocks-libev/shadowsocks.json</code>
-            <code> 
+               </li>
+              </ul>
+            <code>
+                sudo nano /etc/shadowsocks-libev/shadowsocks.json
+            </code>
+<code>           
 {
     "server": "",
     "mode": "",
@@ -53,8 +55,8 @@
     "timeout": ,
     "method": ""
 }
-            </code></pre>
-        </li>
+            </code>
+      <ul>
         <li>
             <p>Try to run the current configuration:</p>
             <pre><code>sudo ss-local -c /etc/shadowsocks-libev/shadowsocks.json</code></pre>
@@ -73,6 +75,6 @@ sudo systemctl run shadowsocks.service
 sudo systemctl status shadowsocks.service
             </code></pre>
         </li>
-    </ol>
+    </ul>
 
     <p>Congratulations! Shadowsocks Proxy Client is now installed and running.</p>
