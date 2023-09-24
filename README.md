@@ -3,13 +3,6 @@
   <pre><code>sudo apt update</code></pre>
   <p>Install Shadowsocks-Libev:</p>
   <pre><code>sudo apt install shadowsocks-libev -y</code></pre>
-  <p>Create a daemon user and user group:</p>
-  <pre><code>
-    sudo useradd -r -s /bin/false shadowsocks
-    sudo groupadd shadowsocks
-    sudo chown -R shadowsocks:shadowsocks /etc/shadowsocks-libev/ 
-  </code>
-  </pre>
     <p>Open the JSON configuration file and add the following properties with their respective values:</p>
             <ul>
                 <li>
@@ -63,18 +56,26 @@
         </li>
         <li>
             <p>If the configuration is successful, try creating a proxy client daemon:</p>
-            <pre><code>
-sudo nano /etc/systemd/system/shadosocks.service
-            </code></pre>
+            <pre>
+             <code>
+                  sudo nano /etc/systemd/system/shadosocks.service
+            </code>
+            </pre>
         </li>
         <li>
             <p>Update daemon services, run and add to autoload:</p>
             <pre><code>
-sudo systemctl daemon-reload
-sudo systemctl run shadowsocks.service
-sudo systemctl status shadowsocks.service
-            </code></pre>
+                 sudo systemctl daemon-reload
+                 sudo systemctl run shadowsocks.service
+                 sudo systemctl status shadowsocks.service
+            </code>
+            </pre>
         </li>
     </ul>
-
-    <p>Congratulations! Shadowsocks Proxy Client is now installed and running.</p>
+<p>Create a daemon user and user group:</p>
+  <pre>
+   <code>
+      sudo useradd -r -s /bin/false shadowsocks
+      sudo groupadd shadowsocks
+      sudo chown -R shadowsocks:shadowsocks /etc/shadowsocks-libev/ 
+  </code>
