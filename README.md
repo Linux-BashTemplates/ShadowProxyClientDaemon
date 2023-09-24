@@ -16,8 +16,9 @@
    "timeout":       The timeout duration in seconds. If no data is transmitted for the specified duration, the connection is considered idle and may be closed.</p>
    "method":        The encryption method or cipher used for securing the communication between the client and server. Common methods include "aes-256-gcm," "chacha20-ietf," etc. It determines how data is encrypted and decrypted.</p>
 }
+ </pre>
  <p>Create a daemon user and user group:</p>
-   <pre><code>sudo useradd -r -s /bin/false shadowsocks</code> </pre>
+   <pre><code>sudo useradd -r -s /bin/false shadowsocks</code> </pre> 
    <pre><code>sudo groupadd shadowsocks </code> </pre>
    <pre><code>sudo chown -R shadowsocks:shadowsocks /etc/shadowsocks-libev/</code></pre>  
 <p>Edit shadosocks config:</p>
@@ -26,7 +27,7 @@
    <pre><code>sudo ss-local -c /etc/shadowsocks-libev/shadowsocks.json</code></pre>
 <p>If the configuration is successful, try creating a proxy client daemon:</p>
    <pre><code>sudo nano /etc/systemd/system/shadosocks.service</code></pre> 
-<p>Add new rows:</p>
+<p>Add new rows:</p><br>
 <pre>
 [Unit]
    Description=Shadowsocks Proxy Client
