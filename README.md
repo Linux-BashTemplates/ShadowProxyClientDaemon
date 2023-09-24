@@ -1,25 +1,15 @@
  <h1>Install ShadowProxy Client</h1>
-
-    <h2>Installation Steps</h2>
-
-    <ol>
-        <li>
-            <p>Update your package list:</p>
+  <p>Update your package list:</p>
             <pre><code>sudo apt update</code></pre>
-        </li>
-        <li>
             <p>Install Shadowsocks-Libev:</p>
             <pre><code>sudo apt install shadowsocks-libev -y</code></pre>
-        </li>
-        <li>
             <p>Create a daemon user and user group:</p>
             <pre><code>
-sudo useradd -r -s /bin/false shadowsocks
-sudo groupadd shadowsocks
-sudo chown -R shadowsocks:shadowsocks /etc/shadowsocks-libev/
+               sudo useradd -r -s /bin/false shadowsocks
+               sudo groupadd shadowsocks
+               sudo chown -R shadowsocks:shadowsocks /etc/shadowsocks-libev/ 
             </code></pre>
-        </li>
-        <li>
+  
             <p>Open the JSON configuration file and add the following properties with their respective values:</p>
             <ul>
                 <li>
@@ -50,8 +40,8 @@ sudo chown -R shadowsocks:shadowsocks /etc/shadowsocks-libev/
                     <p><strong>"method":</strong> The encryption method or cipher used for securing the communication between the client and server. Common methods include "aes-256-gcm," "chacha20-ietf," etc. It determines how data is encrypted and decrypted.</p>
                 </li>
             </ul>
-            <pre><code>sudo nano /etc/shadowsocks-libev/shadowsocks.json</code></pre>
-            <pre><code>
+            <code>sudo nano /etc/shadowsocks-libev/shadowsocks.json</code>
+            <code> 
 {
     "server": "",
     "mode": "",
