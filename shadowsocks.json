@@ -1,0 +1,11 @@
+{
+    "server":"",
+    "mode":"", 
+    "server_port":,
+    "local_address":"",
+    "local_port":,
+    "nameserver":"",
+    "password":"",
+    "timeout":,
+    "method":""
+}

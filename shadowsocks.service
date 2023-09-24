@@ -1,0 +1,11 @@
+[Unit]
+Description=Shadowsocks Proxy Client
+[Service]
+User=root
+Group=root
+Type=simple
+ExecStart=/usr/bin/ss-local -c /etc/shadowsocks-libev/shadowsocks.json -a shadowsocks -v start
+ExecStop=/usr/bin/ss-local -c /etc/shadowsocks-libev/shadowsocks.json -a shadowsocks -v stop
+
+[Install]
+WantedBy=multi-user.target
