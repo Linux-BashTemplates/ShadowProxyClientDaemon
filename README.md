@@ -16,21 +16,21 @@
    "timeout":       The timeout duration in seconds. If no data is transmitted for the specified duration, the connection is considered idle and may be closed.</p>
    "method":        The encryption method or cipher used for securing the communication between the client and server. Common methods include "aes-256-gcm," "chacha20-ietf," etc. It determines how data is encrypted and decrypted.</p>
 </code>
+</pre>
+ <hr>
  <p>Create a daemon user and user group:</p>
-  <pre>
      <code>
       sudo useradd -r -s /bin/false shadowsocks
       sudo groupadd shadowsocks
       sudo chown -R shadowsocks:shadowsocks /etc/shadowsocks-libev/ 
   </code>
-  </pre> 
-</pre>
+  </pre> <hr>
 <p>Edit shadosocks config:</p>
  <pre> 
     <code>
         sudo nano /etc/shadowsocks-libev/shadowsocks.json
    </code> 
- </pre>
+ </pre> <hr>
 <p>Try to run current configuration:</p>
 <pre>
    <code>sudo ss-local -c /etc/shadowsocks-libev/shadowsocks.json</code>
@@ -38,7 +38,7 @@
 <p>If the configuration is successful, try creating a proxy client daemon:</p>
 <pre>
    <code>sudo nano /etc/systemd/system/shadosocks.service</code>
-</pre>
+</pre><hr>
 <p>Add new rows:</p>
 <pre>
  <code>
@@ -53,7 +53,7 @@ Group=root
 [Install]
    WantedBy=multi-user.target
 </code>
-</pre>
+</pre><hr>
 <p>Update daemon services, run and add to autoload:</p> 
 <pre>
    <code>
@@ -61,4 +61,4 @@ Group=root
       sudo systemctl run shadowsocks.service
       sudo systemctl status shadowsocks.service
   </code>
-</pre>
+</pre><hr>
