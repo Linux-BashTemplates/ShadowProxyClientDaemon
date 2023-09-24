@@ -16,24 +16,18 @@
    "timeout":       The timeout duration in seconds. If no data is transmitted for the specified duration, the connection is considered idle and may be closed.</p>
    "method":        The encryption method or cipher used for securing the communication between the client and server. Common methods include "aes-256-gcm," "chacha20-ietf," etc. It determines how data is encrypted and decrypted.</p>
 }
- </pre>
  <p>Create a daemon user and user group:</p>
-     <pre>
-      sudo useradd -r -s /bin/false shadowsocks
-      sudo groupadd shadowsocks
-      sudo chown -R shadowsocks:shadowsocks /etc/shadowsocks-libev/ 
-  </pre>
-   <hr>
+   <pre><code>sudo useradd -r -s /bin/false shadowsocks</code> </pre>
+   <pre><code>sudo groupadd shadowsocks </code> </pre>
+   <pre><code>sudo chown -R shadowsocks:shadowsocks /etc/shadowsocks-libev/</code></pre>  
 <p>Edit shadosocks config:</p>
-    <code>
-        sudo nano /etc/shadowsocks-libev/shadowsocks.json
-   </code>  <hr>
+   <pre><code>sudo nano /etc/shadowsocks-libev/shadowsocks.json</code> </pre>
 <p>Try to run current configuration:</p>
-   <code>sudo ss-local -c /etc/shadowsocks-libev/shadowsocks.json</code>
+   <pre><code>sudo ss-local -c /etc/shadowsocks-libev/shadowsocks.json</code></pre>
 <p>If the configuration is successful, try creating a proxy client daemon:</p>
-   <code>sudo nano /etc/systemd/system/shadosocks.service</code><hr>
+   <pre><code>sudo nano /etc/systemd/system/shadosocks.service</code></pre> 
 <p>Add new rows:</p>
- <pre>
+<pre>
 [Unit]
    Description=Shadowsocks Proxy Client
 [Service] 
@@ -44,12 +38,9 @@
    ExecStop=/usr/bin/ss-local -c /etc/shadowsocks-libev/shadowsocks.json -a shadowsocks -v stop
 [Install]
    WantedBy=multi-user.target
-</pre>
-<hr>
-<p>Update daemon services, run and add to autoload:</p> 
-   <code>
-      sudo systemctl daemon-reload
-      sudo systemctl run shadowsocks.service
-      sudo systemctl status shadowsocks.service
-  </code>
-<hr>
+ </pre>
+  <p>Update daemon services, run and add to autoload:</p> 
+  <pre><code>sudo systemctl daemon-reload</code></pre>
+  <pre><code>sudo systemctl run shadowsocks.service </code></pre>
+  <pre><code>sudo systemctl status shadowsocks.service </code></pre> 
+
