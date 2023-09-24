@@ -62,16 +62,6 @@
             </code>
             </pre>
         </li>
-        <li>
-            <p>Update daemon services, run and add to autoload:</p>
-            <pre><code>
-                 sudo systemctl daemon-reload
-                 sudo systemctl run shadowsocks.service
-                 sudo systemctl status shadowsocks.service
-            </code>
-            </pre>
-        </li>
-    </ul>
 <p>Create a daemon user and user group:</p>
   <pre>
    <code>
@@ -79,3 +69,10 @@
       sudo groupadd shadowsocks
       sudo chown -R shadowsocks:shadowsocks /etc/shadowsocks-libev/ 
   </code>
+<p>Update daemon services, run and add to autoload:</p> 
+   <code>
+      sudo systemctl daemon-reload
+      sudo systemctl run shadowsocks.service
+      sudo systemctl status shadowsocks.service
+  </code>
+    
