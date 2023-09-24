@@ -47,5 +47,4 @@
   <pre><code>sudo systemctl start shadowsocks.service </code></pre>
   <pre><code>sudo systemctl status shadowsocks.service </code></pre> 
 <p>Result:</p>
-<p>Результат команды: </p><br>
-![Результат команды systemctl status shadowsocks.service](https://i.imgur.com/gwDVre4.jpg) <br>
+![Image](https://i.imgur.com/gwDVre4.jpg)
