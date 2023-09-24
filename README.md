@@ -41,8 +41,11 @@
 [Install]
    WantedBy=multi-user.target
  </pre>
-  <p>Update daemon services, run and add to autoload:</p> 
+  <p>Update daemon services, run and additional to autoload:</p> 
   <pre><code>sudo systemctl daemon-reload</code></pre>
-  <pre><code>sudo systemctl run shadowsocks.service </code></pre>
+  <pre><code>sudo systemctl enable shadowsocks.service </code></pre>
+  <pre><code>sudo systemctl start shadowsocks.service </code></pre>
   <pre><code>sudo systemctl status shadowsocks.service </code></pre> 
-
+<p>Result:</p>
+<p>Результат команды: </p><br>
+![Результат команды systemctl status shadowsocks.service](https://sun9-78.userapi.com/impg/5pcvqu5FOuQce4M9l5DEuZC27DNZagW8hr0m3w/f-8CZ6gCsEQ.jpg?size=874x546&quality=95&sign=43641684f7e1020ff58c742c59c1245f&c_uniq_tag=NJb9PZVdlOz3w3E0OrOTsQ2ws394sxG8W6Ppevd4Lu8&type=album) <br>
