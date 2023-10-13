@@ -23,6 +23,8 @@
  <p>Create a daemon user and user group:</p>
    <pre><code>sudo useradd -r -s /bin/false shadowsocks</code> </pre> 
    <pre><code>sudo groupadd shadowsocks </code> </pre>
+   <pre><code> sudo sudo usermod -aG shadowsocks shadowsocks</code> </pre>
+   <pre><code> groups shadowsocks | grep shadowsocks </code> </pre>  
    <pre><code>sudo chown -R shadowsocks:shadowsocks /etc/shadowsocks-libev/</code></pre>  
 <p>Try to run current configuration:</p>
    <pre><code>sudo ss-local -c /etc/shadowsocks-libev/shadowsocks.json</code></pre>
